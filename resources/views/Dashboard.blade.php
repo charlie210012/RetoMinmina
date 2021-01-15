@@ -17,7 +17,8 @@
           
           <div class="tile">
             <div class="tile-body">
-              <form id ="snuevo" name ="snuevo"  method ="POST">
+              <form id ="snuevo" name ="snuevo" method ="POST">
+                @csrf
                 <div class="form-group">
                   <label class="control-label">Nombres</label>
                   <input class="form-control" id="nombres" name="nombres" type="text" placeholder="Escriba su nombre completo">
@@ -78,17 +79,17 @@
         
           
           <!-- Pending Requests Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
+            <div class="col-xl-3 col-md-6 mb-2">
               <div class="card border-left-info shadow h-100 py-2">
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Datos</div>
                       <h6>Cantidad de registros</h6>
+                      <h5 align = "right">{{ count($registers) }}</h5>
                       <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
                     </div>
                     <div class="col-auto">
-                      <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
                     </div>
                   </div>
                 </div>
@@ -118,9 +119,22 @@
                       
                     </tr>
                   </thead>
-                  
                   <tbody>
-                   </tbody>
+                  @foreach($registers as $register)
+                  <tr>
+                  <td> {{ $register -> id }}</td>
+                  <td> {{ $register -> name }}</td>
+                  <td> {{ $register -> lastname }}</td>
+                  <td> {{ $register -> Id_type }}</td>
+                  <td> {{ $register -> id_user }}</td>
+                  <td> {{ $register -> hobbies }}</td>
+                  <td> <a href="#" class="btn btn-info btn-circle btneditar" onclick="openmodalver('.{{ $register -> uri_photo }}.');" id="btneditar" rl="'.{{ $register -> uri_photo }}.'"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
+                  <td> <a href="#" class="btn btn-info btn-circle btneditar" onclick = "openmodaleditar('.{{ $register -> id }}.');" id="btneditar" rl = "'.{{ $register -> id }}.'" ><i class="fas fa-info-circle"></i></a></td>
+                  <td> <a href="#" class="btn btn-danger btn-circle" rl= "'.{{ $register -> id }}.'" id = "btnborra" onclick= "borrardato('.{{ $register -> id }}.');"><i class="fas fa-trash"></i></a> </td>
+                  </tr>
+                  @endforeach
+                  
+                  </tbody>
                 </table>
               </div>
             </div>

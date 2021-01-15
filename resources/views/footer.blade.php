@@ -19,31 +19,33 @@
   </a>
 
 <!-- Bootstrap core JavaScript-->
-  <script type ="text/javascript" src="https:/sidevtech.com/Construprado/vendor/jquery/jquery.min.js"></script>
-  <script type ="text/javascript" src="https:/sidevtech.com/Construprado/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <script type ="text/javascript" src="https://sidevtech.com/Construprado/vendor/jquery/jquery.min.js"></script>
+  <script type ="text/javascript" src="https://sidevtech.com/Construprado/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
-  <script type ="text/javascript" src="https:/sidevtech.com/Construprado/vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script type ="text/javascript" src="https://sidevtech.com/Construprado/vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Custom scripts for all pages-->
-  <script type ="text/javascript" src="https:/sidevtech.com/Construprado/js/sb-admin-2.min.js"></script>
+  <script type ="text/javascript" src="https://sidevtech.com/Construprado/js/sb-admin-2.min.js"></script>
   <!-- Page level plugins -->
-  <script type ="text/javascript" src="https:/sidevtech.com/Construprado/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+  <script type ="text/javascript" src="https://sidevtech.com/Construprado/vendor/datatables/jquery.dataTables.min.js"></script>
+  <script type ="text/javascript" src="https://sidevtech.com/Construprado/vendor/datatables/dataTables.bootstrap4.min.js"></script>
   <!-- Page level custom scripts -->
-  <script type ="text/javascript" src="https:/sidevtech.com/Construprado/js/demo/datatables-demo.js"></script>
+  <script type ="text/javascript" src="https://sidevtech.com/Construprado/js/demo/datatables-demo.js"></script>
   
   <!-- Page level plugins -->
-  <script type ="text/javascript" src="https:/sidevtech.com/Construprado/vendor/chart.js/Chart.min.js"></script>
+  <script type ="text/javascript" src="https://sidevtech.com/Construprado/vendor/chart.js/Chart.min.js"></script>
 
   <!-- Page level custom scripts -->
-  <script type ="text/javascript" src="https:/sidevtech.com/Construprado/js/demo/chart-area-demo.js"></script>
-  <script type ="text/javascript" src="https:/sidevtech.com/Construprado/js/demo/chart-pie-demo.js"></script>
+  <script type ="text/javascript" src="https://sidevtech.com/Construprado/js/demo/chart-area-demo.js"></script>
+  <script type ="text/javascript" src="https://sidevtech.com/Construprado/js/demo/chart-pie-demo.js"></script>
   
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>-->
   <!--adiccional-->
-<script src = "https://code.jquery.com/jquery-3.5.1.js"></script>
+<!--<script src = "https://code.jquery.com/jquery-3.5.1.js"></script>
 <script src ="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>-->
 <script src ="https://cdn.datatables.net/buttons/1.6.4/js/dataTables.buttons.min.js"></script>
 <script src ="https://cdn.datatables.net/buttons/1.6.4/js/buttons.flash.min.js"></script>
@@ -81,22 +83,9 @@
     <script>
      $(document).ready(function() {
      var registros = $('#registros').DataTable({
-        "serverSide": true,
         "language":{
             "url": "//cdn.datatables.net/plug-ins/1.10.21/i18n/Spanish.json"
         },
-        "ajax": "{{ url('/registers') }}",
-        "columns": [
-            { "data": "name" },
-            { "data": "lastname" },
-            { "data": "Id_type" },
-            { "data": "id_user" },
-            { "data": "uri_photo" },
-            { "data": "hobbies" }
-            
-
-            
-        ],
         dom: 'Bfrtip',
         buttons: [
             'copy', 'csv', 'excel', 'pdf', 'print'
@@ -179,7 +168,6 @@
    
   
     <script>
-    
     function openmodal(){
         $('#addrol').modal('show');
     }
@@ -259,6 +247,8 @@ function borrardato(id){
             url:  "eliminarsn.php",
             data: datos,
             success: function(r){
+                aler(r);
+                return false;
                 if (r=="ok"){
                    Swal.fire({
                    title: 'Felicidades!',

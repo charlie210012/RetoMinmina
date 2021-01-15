@@ -14,7 +14,9 @@ class registerController extends Controller
      */
     public function index()
     {
-        return register::all();
+        return view('Dashboard',[
+            'registers' => register::all()
+        ]);
     }
 
     /**

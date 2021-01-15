@@ -20,6 +20,6 @@ use Symfony\Component\HttpKernel\DependencyInjection\RegisterControllerArgumentL
 
 Route::get('/', [tableroController::class,'index']);
 
-Route::get('/Reto1', [reto1Controller::class,'index']);
+//Route::get('/Reto1', [reto1Controller::class,'index']);
 
 Route::resource('/registers', registerController::class);
