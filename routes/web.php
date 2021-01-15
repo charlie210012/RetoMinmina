@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\reto1Controller;
 use App\Http\Controllers\tableroController;
+use App\Http\Controllers\registerController;
 use App\Models\register;
 use Illuminate\Support\Facades\Route;
 use Symfony\Component\HttpKernel\DependencyInjection\RegisterControllerArgumentLocatorsPass;
@@ -21,4 +22,4 @@ Route::get('/', [tableroController::class,'index']);
 
 Route::get('/Reto1', [reto1Controller::class,'index']);
 
-Route::any('/', [registerController::class]);
+Route::resource('/registers', registerController::class);

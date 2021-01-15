@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\register;
 use Illuminate\Http\Request;
 
 class registerController extends Controller
@@ -13,7 +14,7 @@ class registerController extends Controller
      */
     public function index()
     {
-        //
+        return register::all();
     }
 
     /**

@@ -19,6 +19,7 @@
   <!-- Custom styles for this template-->
   <link href="https://sidevtech.com/Construprado/css/sb-admin-2.min.css" rel="stylesheet" type="text/css">
   <link href="https://sidevtech.com/Construprado/css/sweetalert2.min.css" rel="stylesheet" type="text/css">
+  <link href="cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
   
 
 <!--datables estilo bootstrap 4 CSS-->  
