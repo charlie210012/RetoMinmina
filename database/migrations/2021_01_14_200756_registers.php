@@ -21,6 +21,7 @@ class Registers extends Migration
             $table->string('id_user');
             $table->string('uri_photo');
             $table->string('hobbies');
+        
         });
     }
 

@@ -17,7 +17,7 @@
           
           <div class="tile">
             <div class="tile-body">
-              <form id ="snuevo" name ="snuevo" method ="POST">
+              <form id ="snuevo" name ="snuevo" action ="/registers" method ="POST">
                 @csrf
                 <div class="form-group">
                   <label class="control-label">Nombres</label>
@@ -25,7 +25,7 @@
                 </div>
                 <div class="form-group">
                   <label class="control-label">Apellidos</label>
-                  <input class="form-control" id ="Apellidos" name="Apellidos" type="text" placeholder="Escriba sus apellidos" >
+                  <input class="form-control" id ="apellidos" name="apellidos" type="text" placeholder="Escriba sus apellidos" >
                 </div>
                 <div class="form-group">
                   <label class="control-label">Tipo de documento</label>
@@ -52,7 +52,7 @@
                 
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="submit" class="btn btn-primary" id ="btnx">Guardar</button>
+                <button type="submit" class="btn btn-primary" id ="boton" name="boton">Guardar</button>
                 </div>
               </form>
             </div>

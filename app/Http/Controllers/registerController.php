@@ -15,8 +15,9 @@ class registerController extends Controller
     public function index()
     {
         return view('Dashboard',[
-            'registers' => register::all()
+          'registers' => register::all()
         ]);
+        
     }
 
     /**
@@ -37,7 +38,16 @@ class registerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $registro = new register();
+        $registro -> name = $request ->get('nombres');
+        $registro -> lastname = $request ->get('apellidos');
+        $registro -> Id_type = $request ->get('typedocument');
+        $registro -> id_user = $request ->get('numidentificacion');
+        $registro -> uri_photo = 'No hay dato';
+        $registro -> hobbies = $request ->get('pasatiempo');
+        $registro ->save();
+
+        return redirect('/registers');
     }
 
     /**
