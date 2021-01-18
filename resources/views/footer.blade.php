@@ -235,13 +235,14 @@ function borrardato(id){
                "id": id,
          };
          $.ajax({
-            type: "POST",
-            url:  "eliminarsn.php",
-            data: datos,
+            type: "DELETE",
+            url:  '/registers/' + id,
+            headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            dataType: "json",
             success: function(r){
-                aler(r);
-                return false;
-                if (r=="ok"){
+                if (r['message']=="ok"){
                    Swal.fire({
                    title: 'Felicidades!',
                    text:'Se ha borrado el dato con exito',

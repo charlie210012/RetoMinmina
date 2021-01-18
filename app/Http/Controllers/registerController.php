@@ -92,6 +92,11 @@ class registerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $registro = register::find($id);
+        $registro -> delete();
+
+        return response()->json([
+            'message' => 'ok'
+          ]); 
     }
 }

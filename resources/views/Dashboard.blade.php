@@ -85,8 +85,7 @@
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Datos</div>
-                      <h6>Cantidad de registros</h6>
-                      <h5 align = "right">{{ count($registers) }}</h5>
+                      <h6>Cantidad de registros: {{ count($registers) }}</h6>
                       <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
                     </div>
                     <div class="col-auto">
@@ -122,7 +121,7 @@
                   <tbody>
                   @foreach($registers as $register)
                   <tr>
-                  <td> {{ $register -> id }}</td>
+                  <td> {{ $register -> id }} </td>
                   <td> {{ $register -> name }}</td>
                   <td> {{ $register -> lastname }}</td>
                   <td> {{ $register -> Id_type }}</td>
@@ -130,9 +129,10 @@
                   <td> {{ $register -> hobbies }}</td>
                   <td> <a href="#" class="btn btn-info btn-circle btneditar" onclick="openmodalver('.{{ $register -> uri_photo }}.');" id="btneditar" rl="'.{{ $register -> uri_photo }}.'"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
                   <td> <a href="#" class="btn btn-info btn-circle btneditar" onclick = "openmodaleditar('.{{ $register -> id }}.');" id="btneditar" rl = "'.{{ $register -> id }}.'" ><i class="fas fa-info-circle"></i></a></td>
-                  <td> <a href="#" class="btn btn-danger btn-circle" rl= "'.{{ $register -> id }}.'" id = "btnborra" onclick= "borrardato('.{{ $register -> id }}.');"><i class="fas fa-trash"></i></a> </td>
+                  <td> <a href="#" class="btn btn-danger btn-circle" rl= "'.{{ $register -> id }}.'" id = "btnborra" onclick= "borrardato('{{ $register -> id }}');"><i class="fas fa-trash"></i></a> </td>
                   </tr>
                   @endforeach
+                  
                   
                   </tbody>
                 </table>

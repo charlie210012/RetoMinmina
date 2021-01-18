@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content = "Carlos Andres Arevalo Cortes">
     <meta name="theme-color" content = "#009688">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel= "shortcut icon" href = "https://sidevtech.com/Construprado/img/logomin.png">
   <title>Restos | Interacpedia</title>
 
