@@ -129,9 +129,11 @@
     //actualizar dato
     $(document).on("click","#btnz",function(){
         var datos1 = $('#snuevo1').serialize();
+        aler(datos['id']);
+        return false;
         $.ajax({
             type: "POST",
-            url:  "actualizarsnuevo.php",
+            url:  "/registers/" + datos1['id'],
             data: datos1,
             success: function(r){
                 if(r=="error"){
@@ -175,47 +177,15 @@
 
 <script>
 // Este codigo lanza el modals de la edicion de los datos en la pagina SeguimientoNuevo, y sirve para mostras los datos a editar, enlazado a extraersn.php para sacar esos datos//
-function openmodaleditar(id){
+function openmodaleditar(register){
     $('#editar').modal('show');
-         var datos  = {
-             "id": id,
-         };
-         $.ajax({
-            type: "POST",
-            url:  "extraersn.php",
-            data: datos,
-            success: function(r){
-                var datoss = JSON.parse(r);
-                var procesop = datoss[0]["14"];
-                var procesot = datoss[0]["15"];
-                document.getElementById("id").value = datoss[0]["id"];
-                document.getElementById("obra1").value = datoss[0]["7"];
-                document.getElementById("costogestion1").value = datoss[0]["10"];
-                document.getElementById("proveedor1").value = datoss[0]["12"];
-                document.getElementById("trabajador1").value = datoss[0]["13"];
-                document.getElementById("cantidadg1").value = datoss[0]["8"];
-                document.getElementById("demoDate1").value = datoss[0]["Fecha"];
-                document.getElementById("cantidad1").value = datoss[0]["2"];
-                document.getElementById("manga1").value = datoss[0]["3"];
-                document.getElementById("costoprado1").value = datoss[0]["4"];
-                document.getElementById("tipoprado1").value = datoss[0]["6"];
-                document.getElementById("procesot").value = procesot;
-                if (procesop == 0){
-                    document.getElementById("procesop").value = "No pagado";
-                }else{
-                    document.getElementById("procesop").value = "Pagado";
-                }
-                if (procesot == 0){
-                    document.getElementById("procesot").value = "No pagado";
-                }else{
-                    document.getElementById("procesot").value = "Pagado";
-                }
-                
-                return false;
-                
-            }
-            
-        });
+    var r = JSON.parse(register);
+        document.getElementById("id").value = r['id'];
+        document.getElementById("nombres1").value = r['name'];
+        document.getElementById("apellidos1").value = r['lastname'];
+        document.getElementById("typedocument1").value = r['Id_type'];
+        document.getElementById("numidentificacion1").value = r['id_user'];
+        document.getElementById("pasatiempo1").value = r['hobbies'];
     }
 
 </script>

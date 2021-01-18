@@ -58,7 +58,8 @@ class registerController extends Controller
      */
     public function show($id)
     {
-        //
+        $registro = register::find($id);
+        return $registro;
     }
 
     /**
