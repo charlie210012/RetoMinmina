@@ -103,17 +103,12 @@
                     text: 'Los datos fueron agregados con exito',
                     icon: 'success',
                      });
-                     $('#demoDate').val('');
-                     $('#cantidad').val('');
-                     $('#manga').val('');
-                     $('#costoprado').val('');
-                     $('#tipoprado').val('');
-                     $('#obra').val('');
-                     $('#cantidadgestion').val('');
-                     $('#costogestion').val('');
-                     $('#diferencia').val('');
-                     $('#proveedor').val('');
-                     $('#trabajador').val('');
+                     $('#id').val('');
+                     $('#nombres1').val('');
+                     $('#apellidos1').val('');
+                     $('#typedocument1').val('');
+                     $('#numidentificacion1').val('');
+                     $('#pasatiempo1').val('');
                      registros.ajax.reload();
                      
                      
@@ -129,12 +124,15 @@
     //actualizar dato
     $(document).on("click","#btnz",function(){
         var datos1 = $('#snuevo1').serialize();
-        aler(datos['id']);
-        return false;
+        var id = document.getElementById('id').value;
         $.ajax({
-            type: "POST",
-            url:  "/registers/" + datos1['id'],
+            type: "PUT",
+            url:  "/registers/" + id,
+            headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
             data: datos1,
+            dataType: "json",
             success: function(r){
                 if(r=="error"){
                     Swal.fire({        
@@ -148,7 +146,7 @@
                     text: 'Los datos fueron actualizados con exito',
                     icon: 'success',
                      });
-                     SeguimientoN.ajax.reload();
+                    location.reload();
                 }
                 
                 

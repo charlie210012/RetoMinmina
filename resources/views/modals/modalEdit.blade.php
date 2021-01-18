@@ -11,7 +11,7 @@
       <div class="modal-body">
           <div class="tile">
             <div class="tile-body">
-              <form id ="snuevo1" name ="snuevo1"  method ="POST">
+              <form id ="snuevo1" name ="snuevo1" method ="POST">
                  <input class="form-control" id="id" name ="id" type="text" placeholder="id" readonly="">
                 <div class="form-group">
                   <label class="control-label">Nombres</label>
@@ -46,7 +46,7 @@
                 
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="submit" class="btn btn-primary" id ="boton" name="boton">Actualizar</button>
+                <button type="submit" class="btn btn-primary" id ="btnz" name="btnz">Actualizar</button>
                 </div>
               </form>
             </div>

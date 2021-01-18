@@ -82,7 +82,20 @@ class registerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $registro = register::find($id);
+        $registro -> name = $request ->get('nombres1');
+        $registro -> lastname = $request ->get('apellidos1');
+        $registro -> Id_type = $request ->get('typedocument1');
+        $registro -> id_user = $request ->get('numidentificacion1');
+        $registro -> uri_photo = 'No hay dato';
+        $registro -> hobbies = $request ->get('pasatiempo1');
+        $registro ->save();
+
+        return response()->json([
+            'message' => 'ok'
+          ]); 
+
+
     }
 
     /**
